@@ -4,29 +4,15 @@ import { useState } from "react";
 import { HiMinus } from "react-icons/hi";
 
 
-
-
-// Define the Header component
 function Header() {
-  // State to keep track of the destination input by the user
   const [destination, setDestination] = useState("");
-  
-  // State to manage whether the options menu is open or closed
   const [openOptions, setOpenOptions] = useState(false); 
-  
-  // State to manage the number of adults, children, and rooms
   const [options, setOptions] = useState({
-      adult: 1,     // Initial number of adults
-      children: 0,  // Initial number of children
-      room: 1,      // Initial number of rooms
-  });
+      adult: 1,
+      children: 0,
+      room: 1,
+  }); 
 
-  // Functionality for the component would be added here
-
-  return (
-      // JSX code for rendering the component would be added here
-  );
-}
 
 
   return (
@@ -65,6 +51,7 @@ function Header() {
     </div>
     </div>
   ); 
+
 }
 
 export default Header; 
