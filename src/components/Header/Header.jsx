@@ -123,27 +123,42 @@ function GuestOptionsList({ options, handleOptions, setOpenOptions}) {
   
 
 
-  function OptionItem(options, type, minLimit, handleOptions){
+
+
+  function OptionItem(options, type, minLimit, handleOptions) {
     return (
+        // Main container for the guest option item
         <div className="guestOptionItem">
-        <span className="optionText">{type}</span>
-        <div className="optionCounter">
-          <button 
-          onClick={() => handleOptions (type, "dec")}
-          className="optionCounterBtn"
-          disabled={options [type] < miniList}
-          >
-              <HiMinus className="icon" />
-          </button>
-          <span className="optionCounterNumber">{options [type]}</span>
-          <button 
-          onClick={() => handleOptions(type, "inc")}
-          className="optionCounterBtn">
-          <HiPlus className="icon" />
-          </button>
+            {/* Display the type of option (e.g., "Adults", "Children", etc.) */}
+            <span className="optionText">{type}</span>
+
+            {/* Container for the counter buttons and display */}
+            <div className="optionCounter">
+                {/* Button to decrease the option count */}
+                <button 
+                    onClick={() => handleOptions(type, "dec")} // Call handleOptions with 'dec' action to decrease the count
+                    className="optionCounterBtn"
+                    disabled={options[type] < minLimit} // Disable button if count is less than the minimum limit
+                >
+                    {/* Minus icon inside the button */}
+                    <HiMinus className="icon" />
+                </button>
+
+                {/* Display the current count for the option */}
+                <span className="optionCounterNumber">{options[type]}</span>
+
+                {/* Button to increase the option count */}
+                <button 
+                    onClick={() => handleOptions(type, "inc")} // Call handleOptions with 'inc' action to increase the count
+                    className="optionCounterBtn"
+                >
+                    {/* Plus icon inside the button */}
+                    <HiPlus className="icon" />
+                </button>
+            </div>
         </div>
-      </div>
-    ); 
-  }
+    );
+}
+
  
   
