@@ -9,8 +9,14 @@ import { DateRange } from 'react-date-range';
 
 
 function Header() {
+    // Declare a state variable 'destination' with an initial empty string value
+  // and a function 'setDestination' to update its value
   const [destination, setDestination] = useState("");
+   // Declare a state variable 'openOptions' with an initial value of 'false'
   const [openOptions, setOpenOptions] = useState(false); 
+
+   // Declare a state variable 'options' with an initial value containing the number of adults, children, and rooms
+  // Use 'setOptions' to update these values
   const [options, setOptions] = useState({
       adult: 1,
       children: 0,
