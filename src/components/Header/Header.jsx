@@ -101,9 +101,16 @@ setOptions(prev => {
 export default Header; 
 
 function GuestOptionsList({ options, handleOptions, setOpenOptions}) {
+
+  // Create a reference to the dropdown element to detect outside clicks
   const optionsRef = useRef()
+
+  // This custom hook will listen for clicks outside the "guestOptions" dropdown
+  // If a click happens outside, the dropdown will be closed by setting setOpenOptions(false)
   useOutsideClick(optionsRef, "optionDropDown", () => setOpenOptions(false)); 
     return (
+
+      // Attach the ref to the div containing the dropdown options for guest selection
       <div className="guestOptions" ref={optionsRef}>
       <OptionItem 
       handleOptions={handleOptions}
