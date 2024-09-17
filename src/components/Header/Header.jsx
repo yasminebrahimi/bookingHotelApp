@@ -30,7 +30,14 @@ function Header() {
       key: 'traveling-date-range',
     }, 
   ]); 
+
+
 const [openDate, setOpenDate] = useState(false);  
+
+
+
+// Function to handle changes in options (like incrementing or decrementing the value of a certain option).
+// 'name' refers to the option to modify, and 'operation' determines whether to increase ('inc') or decrease ('dec') its value.
 
 const handleOptions = (name, operation) => {
 setOptions(prev => {
