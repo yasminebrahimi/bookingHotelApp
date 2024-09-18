@@ -50,9 +50,19 @@ setOptions(prev => {
 
   return (
     <div className="header">
+
+
+      {/* Container for the search elements in the header */}
       <div className="headerSearch">        
-      <div className="headerSearchItem">    
+      <div className="headerSearchItem"> 
+
+
+
+        {/* First search item: Location input field */}   
       <MdLocationOn className="headerIcon locationIcon" />
+
+
+       {/* Input field for entering the destination */}
       <input 
       value={destination}
       onChange={(e) => setDestination(e.target.value)}
@@ -64,7 +74,12 @@ setOptions(prev => {
       />
       <span className="seperator"></span>
       </div>
+
+
+      {/* Second search item: Date selection */}
       <div className="headerSearchItem">
+
+         {/* Location icon (using MdLocationOn component) */}
         <HiCalendar className="headerIcon dateIcon"/>
         <div onClick={() => setOpenDate(!openDate)} className="dateDropDown">
         ${format(new Date(date[0].startDate), "MM/dd/yyyy")} to
