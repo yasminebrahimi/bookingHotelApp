@@ -95,13 +95,27 @@ setOptions(prev => {
           />
         )}
 
+
+{/* A separator element between other elements */}
         <span className="seperator"></span>
+
+
+        {/* Start of a container for a search item in the header */}
       </div>
+
+
+       {/* The div responsible for showing the guest options (adults, children, rooms). 
+      On click, it toggles the state `openOptions`, which controls the visibility 
+      of the dropdown menu. */}
       <div className="headerSearchItem">
       <div id="optionDropDown" onClick={() => setOpenOptions(!openOptions)}
       > {options.adult} adult &bull; {options.children} children &bull; 
        {options.room} room
       </div>
+
+
+      {/* If `openOptions` is true, the GuestOptionsList component is rendered. 
+      This component allows users to modify the number of guests and rooms */}
       {openOptions && (
       <GuestOptionsList setOpenOptions={setOpenOptions} 
       handleOptions={handleOptions} 
