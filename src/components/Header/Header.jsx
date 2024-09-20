@@ -149,10 +149,10 @@ function GuestOptionsList({ options, handleOptions, setOpenOptions}) {
       // Attach the ref to the div containing the dropdown options for guest selection
       <div className="guestOptions" ref={optionsRef}>
       <OptionItem 
-      handleOptions={handleOptions}
-      type="adult" 
-      options={options} 
-      miniList={1}
+      handleOptions={handleOptions}   /* Function passed to handle changes to options */
+      type="adult"    /* Type of option, "adult" in this case */
+      options={options}     /* State or props passed as options (e.g., number of adults) */
+      miniList={1}      /* Possibly a prop to customize the list, here it's set to 1 */
       />
       <OptionItem 
       handleOptions={handleOptions}
