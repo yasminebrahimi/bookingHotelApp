@@ -154,10 +154,22 @@ function GuestOptionsList({ options, handleOptions, setOpenOptions}) {
       options={options}     /* State or props passed as options (e.g., number of adults) */
       miniList={1}      /* Possibly a prop to customize the list, here it's set to 1 */
       />
+
+
+
+// Rendering the first OptionItem component for 'children' options
       <OptionItem 
+
+
+// Function to handle changes in options (likely updates the parent component state)
       handleOptions={handleOptions}
       type="children" 
+
+      // The type of option being handled, in this case, it's for "children"
       options={options} 
+
+
+      // A prop likely used to limit or control the display of a mini-list (perhaps for a dropdown or subset of options)
       miniList={1}
       />
       <OptionItem 
