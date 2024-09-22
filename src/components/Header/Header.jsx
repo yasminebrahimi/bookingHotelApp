@@ -121,9 +121,15 @@ setOptions(prev => {
       handleOptions={handleOptions} 
       options={options}/>
     ) }
+
+
+    {/* Separator between the options section and the search button */}
       <span className="seperator"></span>
       </div>
       <div className="headerSearchItem">
+
+
+        {/* Search button section */}
         <button className="headerSearchBtn">
             <HiSearch className="headerIcon" />
         </button>
