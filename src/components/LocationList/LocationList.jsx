@@ -1,27 +1,30 @@
+import useFetch from "../../hooks/useFetch"; 
+
+
 function LocationList() {
     const { data, isloading } = useFetcher("http://localhost:5000/hotels", "");
   
     if (isloading) {
-      return <p>Loading...</p>; // Corrected the return of the loading state
+      return <p>Loading...</p>;
     }
   
     return (
-      <div className="nearbyLocation"> {/* Wrapper for the nearby locations */}
-        <div className="locationList"> {/* Container for the list of locations */}
-          <h2>Nearby Locations</h2> {/* Heading for the section */}
+      <div className="nearbyLocation">
+        <div className="locationList"> 
+          <h2>Nearby Locations</h2> 
           
-          {/* Loop through the data array and render each location */}
+         
           {data.map((item) => {
             return (
-              <div className="locationItem" key={item.id}> {/* Each location item */}
-                <img src={item.picture_url.url} alt={item.name} /> {/* Location image */}
+              <div className="locationItem" key={item.id}>
+                <img src={item.picture_url.url} alt={item.name} />
                 
-                <div className="locationItemDesc"> {/* Description section for the location */}
-                  <p className="location">{item.smart_location}</p> {/* Location's smart location */}
-                  <p className="name">{item.name}</p> {/* Location's name */}
+                <div className="locationItemDesc">
+                  <p className="location">{item.smart_location}</p> 
+                  <p className="name">{item.name}</p> 
                   <p className="price">
-                    €&nbsp;{item.price}&nbsp; {/* Location's price */}
-                    <span>night</span> {/* Price per night */}
+                    €&nbsp;{item.price}&nbsp; 
+                    <span>night</span> 
                   </p>
                 </div>
               </div>
@@ -32,4 +35,4 @@ function LocationList() {
     );
   } 
     
-    export default LocationList; {/* Export the LocationList component */}    
+    export default LocationList;

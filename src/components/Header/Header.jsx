@@ -6,6 +6,7 @@ import useOutsideClick from "../hooks/useOutsideClick";
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRange } from 'react-date-range';
+import { createSearchParams, useNavigate, useSearchParams } from "react-router-dom";
 
 
 function Header() {
@@ -16,7 +17,6 @@ function Header() {
       children: 0,
       room: 1,
   }); 
-
   const [date, setDate] = useState([
     {
       startDate: new Date(),
@@ -24,39 +24,37 @@ function Header() {
       key: 'traveling-date-range',
     }, 
   ]); 
-
-
-const [openDate, setOpenDate] = useState(false);  
-
-
-
-// Function to handle changes in options (like incrementing or decrementing the value of a certain option).
-// 'name' refers to the option to modify, and 'operation' determines whether to increase ('inc') or decrease ('dec') its value.
-
-const handleOptions = (name, operation) => {
+  const [openDate, setOpenDate] = useState(false);  
+  const navigate = useNavigate(); 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const handleOptions = (name, operation) => {
 setOptions(prev => {
   return {
     ...prev, 
     [name]: operation === "inc" ? options[name] +1 : options[name] -1
   }
-})
-  }
+}); 
+  }; 
+}; 
 
+
+const handleSearch = ()=> {
+  const encodedParams = createSearchParams({
+    date: JSON.stringify(date), 
+    destination, 
+    oprions: JSON.stringify(options), 
+  }); 
+  //mote: => setSearchParams(encodedParams); 
+  navigate({
+    pathname: "/hotels", 
+    search: encodedParams.toString(), 
+  }); 
+};
   return (
     <div className="header">
-
-
-      {/* Container for the search elements in the header */}
       <div className="headerSearch">        
       <div className="headerSearchItem"> 
-
-
-
-        {/* First search item: Location input field */}   
       <MdLocationOn className="headerIcon locationIcon" />
-
-
-       {/* Input field for entering the destination */}
       <input 
       value={destination}
       onChange={(e) => setDestination(e.target.value)}
@@ -68,12 +66,7 @@ setOptions(prev => {
       />
       <span className="seperator"></span>
       </div>
-
-
-      {/* Second search item: Date selection */}
       <div className="headerSearchItem">
-
-         {/* Location icon (using MdLocationOn component) */}
         <HiCalendar className="headerIcon dateIcon"/>
         <div onClick={() => setOpenDate(!openDate)} className="dateDropDown">
         ${format(new Date(date[0].startDate), "MM/dd/yyyy")} to
@@ -88,42 +81,21 @@ setOptions(prev => {
           moveRangeOnFirstSelection={true}
           />
         )}
-
-
-{/* A separator element between other elements */}
         <span className="seperator"></span>
-
-
-        {/* Start of a container for a search item in the header */}
       </div>
-
-
-       {/* The div responsible for showing the guest options (adults, children, rooms). 
-      On click, it toggles the state `openOptions`, which controls the visibility 
-      of the dropdown menu. */}
       <div className="headerSearchItem">
       <div id="optionDropDown" onClick={() => setOpenOptions(!openOptions)}
       > {options.adult} adult &bull; {options.children} children &bull; 
        {options.room} room
       </div>
-
-
-      {/* If `openOptions` is true, the GuestOptionsList component is rendered. 
-      This component allows users to modify the number of guests and rooms */}
       {openOptions && (
       <GuestOptionsList setOpenOptions={setOpenOptions} 
       handleOptions={handleOptions} 
       options={options}/>
     ) }
-
-
-    {/* Separator between the options section and the search button */}
       <span className="seperator"></span>
       </div>
       <div className="headerSearchItem">
-
-
-        {/* Search button section */}
         <button className="headerSearchBtn">
             <HiSearch className="headerIcon" />
         </button>
@@ -132,7 +104,7 @@ setOptions(prev => {
     </div>
   ); 
 
-}
+
 
 export default Header; 
 
@@ -220,6 +192,10 @@ function GuestOptionsList({ options, handleOptions, setOpenOptions}) {
         </div>
     );
 }
+
+
+
+
 
  
   
