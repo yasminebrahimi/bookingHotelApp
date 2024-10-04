@@ -133,15 +133,11 @@ function GuestOptionsList({ options, handleOptions, setOpenOptions}) {
       <OptionItem 
 
 
-// Function to handle changes in options (likely updates the parent component state)
+
       handleOptions={handleOptions}
       type="children" 
 
-      // The type of option being handled, in this case, it's for "children"
       options={options} 
-
-
-      // A prop likely used to limit or control the display of a mini-list (perhaps for a dropdown or subset of options)
       miniList={1}
       />
       <OptionItem 
@@ -153,27 +149,18 @@ function GuestOptionsList({ options, handleOptions, setOpenOptions}) {
       </div>
     );
   }
-  
-
-
-
 
   function OptionItem(options, type, minLimit, handleOptions) {
     return (
-        // Main container for the guest option item
         <div className="guestOptionItem">
-            {/* Display the type of option (e.g., "Adults", "Children", etc.) */}
             <span className="optionText">{type}</span>
-
-            {/* Container for the counter buttons and display */}
             <div className="optionCounter">
                 {/* Button to decrease the option count */}
                 <button 
-                    onClick={() => handleOptions(type, "dec")} // Call handleOptions with 'dec' action to decrease the count
+                    onClick={() => handleOptions(type, "dec")} 
                     className="optionCounterBtn"
-                    disabled={options[type] < minLimit} // Disable button if count is less than the minimum limit
+                    disabled={options[type] < minLimit} 
                 >
-                    {/* Minus icon inside the button */}
                     <HiMinus className="icon" />
                 </button>
 
