@@ -163,13 +163,9 @@ function GuestOptionsList({ options, handleOptions, setOpenOptions}) {
                 >
                     <HiMinus className="icon" />
                 </button>
-
-                {/* Display the current count for the option */}
                 <span className="optionCounterNumber">{options[type]}</span>
-
-                {/* Button to increase the option count */}
                 <button 
-                    onClick={() => handleOptions(type, "inc")} // Call handleOptions with 'inc' action to increase the count
+                    onClick={() => handleOptions(type, "inc")} 
                     className="optionCounterBtn"
                 >
                     {/* Plus icon inside the button */}
