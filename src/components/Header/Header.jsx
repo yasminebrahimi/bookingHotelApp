@@ -3,8 +3,8 @@ import { HiCalendar, HiPlus, HiSearch } from "react-icons/hi"
 import { useState } from "react";
 import { HiMinus } from "react-icons/hi";
 import useOutsideClick from "../hooks/useOutsideClick";
-import 'react-date-range/dist/styles.css'; // main style file
-import 'react-date-range/dist/theme/default.css'; // theme css file
+import 'react-date-range/dist/styles.css'; 
+import 'react-date-range/dist/theme/default.css';
 import { DateRange } from 'react-date-range';
 import { createSearchParams, useNavigate, useSearchParams } from "react-router-dom";
 
@@ -44,7 +44,7 @@ const handleSearch = ()=> {
     destination, 
     oprions: JSON.stringify(options), 
   }); 
-  //mote: => setSearchParams(encodedParams); 
+ 
   navigate({
     pathname: "/hotels", 
     search: encodedParams.toString(), 
