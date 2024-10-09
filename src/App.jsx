@@ -23,6 +23,3 @@ function App() {
 
 export default App;
 
-//hotels
-// /index
-// /:id
