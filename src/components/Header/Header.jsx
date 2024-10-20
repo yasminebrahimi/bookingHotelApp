@@ -122,50 +122,8 @@ function GuestOptionsList({ options, handleOptions, setOpenOptions}) {
 
 
 
-// Rendering the first OptionItem component for 'children' options
-      <OptionItem 
 
 
-
-      handleOptions={handleOptions}
-      type="children" 
-
-      options={options} 
-      miniList={1}
-      />
-      <OptionItem 
-      handleOptions={handleOptions}
-      type="room" 
-      options={options}
-       miniList={1}
-       />
-      </div>
-    );
-  }
-
-  function OptionItem(options, type, minLimit, handleOptions) {
-    return (
-        <div className="guestOptionItem">
-            <span className="optionText">{type}</span>
-            <div className="optionCounter">
-                <button 
-                    onClick={() => handleOptions(type, "dec")} 
-                    className="optionCounterBtn"
-                    disabled={options[type] < minLimit} 
-                >
-                    <HiMinus className="icon" />
-                </button>
-                <span className="optionCounterNumber">{options[type]}</span>
-                <button 
-                    onClick={() => handleOptions(type, "inc")} 
-                    className="optionCounterBtn"
-                >
-                    <HiPlus className="icon" />
-                </button>
-            </div>
-        </div>
-    );
-}
 
 
 
