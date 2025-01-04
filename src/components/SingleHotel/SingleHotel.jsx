@@ -27,4 +27,3 @@ function SingleHotel() {
   );
 }
 export default SingleHotel;
-
