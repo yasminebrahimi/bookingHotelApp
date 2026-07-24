@@ -35,12 +35,12 @@ function AddNewBookmark() {
       setGeoCodingError(null);
       try {
         const { data } = await axios.get(
-          `${BASE_GEOCODING_URL}?latitude=${lat}&longitude=${lng}`
+          `${BASE_GEOCODING_URL}?latitude=${lat}&longitude=${lng}`,
         );
 
         if (!data.countryCode)
           throw new Error(
-            "this location is not a city! please click somewhere else."
+            "this location is not a city! please click somewhere else.",
           );
 
         setCityName(data.city || data.locality || "");

@@ -67,7 +67,7 @@ function bookmarkReducer(state, action) {
 function BookmarkListProvider({ children }) {
   const [{ bookmarks, isLoading, currentBookmark }, dispatch] = useReducer(
     bookmarkReducer,
-    initialState
+    initialState,
   );
 
   useEffect(() => {

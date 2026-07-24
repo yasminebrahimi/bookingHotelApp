@@ -33,7 +33,7 @@ const FAKE_USER = {
 export default function AuthProvier({ children }) {
   const [{ user, isAuthenticated }, dispatch] = useReducer(
     authReducer,
-    initialState
+    initialState,
   );
 
   function login(email, password) {
