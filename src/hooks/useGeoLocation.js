@@ -21,7 +21,7 @@ export default function useGeoLocation() {
       (error) => {
         setError(error.message);
         setIsLoading(false);
-      }
+      },
     );
   }
   return { isLoading, error, position, getPosition };

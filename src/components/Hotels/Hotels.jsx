@@ -20,7 +20,16 @@ function Hotels() {
                 item.id === currentHotel?.id ? "current-hotel" : ""
               }`}
             >
-              <img src={item.picture_url.url} alt={item.name} />
+              <img
+                src={
+                  item.thumbnail_url || item.medium_url || "/placeholder.jpg"
+                }
+                alt={item.name}
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = "/placeholder.jpg";
+                }}
+              />
               <div className="searchItemDesc">
                 <p className="location">{item.smart_location}</p>
                 <p className="name">{item.name}</p>

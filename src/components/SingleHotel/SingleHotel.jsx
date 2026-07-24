@@ -21,7 +21,19 @@ function SingleHotel() {
           {currentHotel.number_of_reviews} reviews &bull;{" "}
           {currentHotel.smart_location}
         </div>
-        <img src={currentHotel.xl_picture_url} alt={currentHotel.name} />
+        <img
+          src={
+            currentHotel.xl_picture_url ||
+            currentHotel.medium_url ||
+            currentHotel.thumbnail_url ||
+            "/placeholder.jpg"
+          }
+          alt={currentHotel.name}
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = "/placeholder.jpg";
+          }}
+        />
       </div>
     </div>
   );
