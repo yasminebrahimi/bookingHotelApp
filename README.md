@@ -2,7 +2,7 @@
 
 A React hotel booking app where users can search for locations, browse hotels on an interactive map, view hotel details, and bookmark their favorite stays. Bookmarking is protected behind login.
 
-**Live demo:** [bookinghotelappyasmin.netlify.app](https://bookinghotelappyasmin.netlify.app/)
+**Live demo:** [bookinghotelappyasmin.netlify.app](https://booking-hotel-yasmin.netlify.app/)
 
 > ⚠️ **Note:** The live demo is a static frontend deployment. The app depends on a backend/API server that isn't hosted, so data-dependent features (hotels, bookmarks, login) won't work there. To use the app fully, run the backend server locally alongside the frontend.
 
